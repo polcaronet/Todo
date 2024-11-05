@@ -8,7 +8,8 @@ import {
   View,
 } from "react-native";
 import Checkbox from "expo-checkbox";
-import { MaterialIcons, EvilIcons } from "@expo/vector-icons";
+import { EvilIcons } from "@expo/vector-icons";
+import RocketSvg from "../../assets/rocket.svg"; 
 import { styles } from "./styles";
 
 type Task = {
@@ -54,18 +55,18 @@ export function Home() {
   const completedTasks = tasks.filter((task) => task.completed).length;
   const totalTasks = tasks.length;
 
-  // Filtrando e ordenando as tarefas
+  
   const filteredTasks = tasks
     .filter((task) => (filter === "completed" ? task.completed : true))
-    .sort((a, b) => Number(a.completed) - Number(b.completed)); // Tarefas não concluídas primeiro
+    .sort((a, b) => Number(a.completed) - Number(b.completed)); 
 
   return (
     <View style={styles.container}>
       <Text style={styles.eventName}>
-        <MaterialIcons name="rocket" size={32} color="#78C2DD" /> to
+        <RocketSvg size={32} color="#78C2DD" /> to
         <Text style={styles.eventName2}>do</Text>
       </Text>
-
+    
       <View style={styles.form}>
         <TextInput
           style={styles.input}
